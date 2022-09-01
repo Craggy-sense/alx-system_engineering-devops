@@ -1,6 +1,1 @@
-Display current directory contents.
-
-    Long format
-    with user and group IDs displayed numerically
-    And hidden files (starting with .)
-
+Write a script that lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.
