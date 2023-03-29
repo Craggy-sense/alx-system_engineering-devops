@@ -4,4 +4,4 @@
 # -f ~/.ssh/school: Specifies the filename and location of the private key file.
 # -N 'betty': Specifies the passphrase to be used to protect the private key.
 
-ssh-keygen -t rsa -b 4096 -f school -N 'betty'
+ssh-keygen -t rsa -b 4096 -f school -N betty
