@@ -9,17 +9,17 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     user_id = sys.argv[1]
 
-    #Fetch user data
+    # Fetch user data
     user = requests.get(url + "users/{}".format(user_id)).json()
     username = user.get("username")
 
-    #Fetch TODO list data
+    # Fetch TODO list data
     todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
-    #Define CSV file name
+    # Define CSV file name
     file_name = f"{user_id}.csv"
 
-    #Write data to CSV
+    # Write data to CSV
     with open("{}.csv".format(user_id), "w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         [writer.writerow(
