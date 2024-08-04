@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     #Fetch user data
     user = requests.get(url + "users/{}".format(user_id)).json()
-    employee_name = user.get("username")
+    username = user.get("username")
 
     #Fetch TODO list data
     todos = requests.get(url + "todos", params={"userId": user_id}).json()
@@ -20,12 +20,8 @@ if __name__ == "__main__":
     file_name = f"{user_id}.csv"
 
     #Write data to CSV
-    with open(file_name, mode='w' newline='', encoding='utf-8) as file:
-        writer = csv.writer(file,quoting=csv.QUOTE_ALL)
-        for task in todos:
-            writer.writerow([
-                user_id,
-                employee_name,
-                task.get("completed"),
-                task.get("title)
-            ])
+    with open("{}.csv".format(user_id), "w", newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        [writer.writerow(
+            [user_id, username, t.get("completed"), t.get("title")]
+         ) for t in todos]
